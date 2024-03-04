@@ -1,4 +1,4 @@
-#!/bin/ash
+#!/bin/sh
 
 # ========================================
 # How to apply this script ...
