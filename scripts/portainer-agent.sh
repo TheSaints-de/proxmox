@@ -35,7 +35,7 @@ docker run --restart always -d \
 # How to apply this script ...
 # ----------------------------------------
 #
-# 	wget -O - "https://raw.githubusercontent.com/TheSaints-de/proxmox/main/scripts/portainer-host.sh" | $SHELL
+# 	wget -O - "https://raw.githubusercontent.com/TheSaints-de/proxmox/main/scripts/portainer-agent.sh" | $SHELL
 #
 # ========================================
 
