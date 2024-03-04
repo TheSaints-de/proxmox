@@ -23,9 +23,7 @@ echo ">>> Creating Portainler volume ..."
 docker volume create portainer_data
 
 echo ">>> Starting Portainer container..."
-docker run \
-	--restart always \
-	-d \
+docker run --restart always -d \
 	-p 80:9000 \
 	-v /var/run/docker.sock:/var/run/docker.sock \
 	-v portainer_data:/data \
