@@ -28,7 +28,7 @@ docker volume create $CONTAINER_DATA
 
 echo ">>> Starting Portainer Host ..."
 docker run --name $CONTAINER_NAME --restart always -d \
-	-p 9000:9000 \
+	-p 80:9000 \
 	-v /var/run/docker.sock:/var/run/docker.sock \
 	-v $CONTAINER_DATA:/data \
 	$CONTAINER_IMAGE
