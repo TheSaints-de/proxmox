@@ -14,7 +14,7 @@ echo ">>> Installing Docker Engine and Compose ..."
 wget -O - "https://raw.githubusercontent.com/TheSaints-de/proxmox/main/scripts/docker-$OS_ID.sh" | $SHELL
 
 echo ">>> Deleting all containers ..."
-docker rm -vf $(docker ps -q)
+docker rm -f $(docker ps -q)
 
 echo ">>> Removing all containers ..."
 docker container prune -f
