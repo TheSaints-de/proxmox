@@ -10,6 +10,12 @@
 
 OS_ID=$($(awk -F= '/^ID=/{print $2}' /etc/os-release))
 
+echo "========================================"
+echo "Portainer Host"
+echo "----------------------------------------"
+echo "OS_ID: $OS_ID"
+echo "========================================"
+
 # Install Docker
 wget -O - "https://raw.githubusercontent.com/TheSaints-de/proxmox/main/scripts/docker-$OS_ID.sh" | $SHELL
 
