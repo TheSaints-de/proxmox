@@ -42,6 +42,7 @@ docker run --restart always -d \
 CONTAINER_NAME="portainer_agent"
 CONTAINER_DATA="portainer_data"
 
+AGENT_VERSION="2.19.4"
 OS_ID=$(cat /etc/os-release | grep ^ID= | cut -d'=' -f2 | tr -d '"')
 
 echo ">>> Installing Docker Engine and Compose ..."
@@ -62,4 +63,4 @@ docker run --name $CONTAINER_NAME --restart always
 	-p 9001:9001 \
 	-v /var/run/docker.sock:/var/run/docker.sock \
 	-v $CONTAINER_DATA:/data \
-	portainer/agent
+	portainer/agent:$AGENT_VERSION
