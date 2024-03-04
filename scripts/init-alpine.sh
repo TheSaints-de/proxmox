@@ -8,8 +8,8 @@
 #
 # ========================================
 
-# Run Alpine update
+echo ">>> Running Alpine update ..."
 apk update && apk upgrade
 
-# Install bash
+echo ">>> Installing bash ..."
 apk add bash

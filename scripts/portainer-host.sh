@@ -10,26 +10,20 @@
 
 OS_ID=$(cat /etc/os-release | grep ^ID= | cut -d'=' -f2 | tr -d '"')
 
-echo "========================================"
-echo "Portainer Host"
-echo "----------------------------------------"
-echo "OS_ID: $OS_ID"
-echo "========================================"
-
-# Install Docker
+echo ">>> Installing Docker Engine and Compose ..."
 wget -O - "https://raw.githubusercontent.com/TheSaints-de/proxmox/main/scripts/docker-$OS_ID.sh" | $SHELL
 
-# Delete all containers (incl. anonymous volumes)
+echo ">>> Deleting all containers ..."
 docker rm -vf $(docker ps -q)
 
-# Remove all containers 
+echo ">>> Removing all containers ..."
 docker container prune -f
 
-# Delete all images
+echo ">>> Deleting all images ..."
 docker rmi -f $(docker images -q)
 
-# Remove all images
+echo ">>> Removing all images ..."
 docker image prune -f
 
-# Install Portainer
+echo ">>> Installing Portainer ..."
 docker run --restart always -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce
