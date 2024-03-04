@@ -14,5 +14,4 @@ wget -O - "https://raw.githubusercontent.com/TheSaints-de/proxmox/main/scripts/i
 apk add docker docker-compose
 
 # Start and enable Docker Service
-rc-update add docker boot
-service docker start
+rc-update add docker boot && service docker start
