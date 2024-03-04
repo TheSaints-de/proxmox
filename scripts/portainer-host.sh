@@ -4,14 +4,14 @@
 # How to apply this script ...
 # ----------------------------------------
 #
-# 	wget -qO - "https://raw.githubusercontent.com/TheSaints-de/proxmox/main/scripts/portainer-host.sh" | $(echo $SHELL)
+# 	wget -O - "https://raw.githubusercontent.com/TheSaints-de/proxmox/main/scripts/portainer-host.sh" | $(echo $SHELL)
 #
 # ========================================
 
 OS_ID=$($(awk -F= '/^ID=/{print $2}' /etc/os-release))
 
 # Install Docker
-wget -qO - "https://raw.githubusercontent.com/TheSaints-de/proxmox/main/scripts/docker-$OS_ID.sh" | $(echo $SHELL)
+wget -O - "https://raw.githubusercontent.com/TheSaints-de/proxmox/main/scripts/docker-$OS_ID.sh" | $(echo $SHELL)
 
 # Delete all containers (incl. anonymous volumes)
 docker rm -vf $(docker ps -q)
