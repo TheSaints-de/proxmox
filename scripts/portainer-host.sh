@@ -4,7 +4,7 @@
 # How to apply this script ...
 # ----------------------------------------
 #
-# 	wget -qO - "https://raw.githubusercontent.com/TheSaints-de/proxmox/main/scripts/portainer-host.sh" | $(echo $SHELL)
+# 	wget -O - "https://raw.githubusercontent.com/TheSaints-de/proxmox/main/scripts/portainer-host.sh" | $(echo $SHELL)
 #
 # ========================================
 
