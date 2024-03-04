@@ -8,7 +8,7 @@
 #
 # ========================================
 
-OS_ID=$($(awk -F= '/^ID=/{print $2}' /etc/os-release))
+OS_ID=$(cat /etc/os-release | grep ^ID= | cut -d'=' -f2 | tr -d '"')
 
 echo "========================================"
 echo "Portainer Host"
