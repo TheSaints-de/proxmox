@@ -8,6 +8,9 @@
 #
 # ========================================
 
+CONTAINER_NAME="portainer_agent"
+CONTAINER_DATA="portainer_data"
+
 OS_ID=$(cat /etc/os-release | grep ^ID= | cut -d'=' -f2 | tr -d '"')
 
 echo ">>> Installing Docker Engine and Compose ..."
@@ -19,12 +22,12 @@ echo ">>> Deleting all containers ..."
 echo ">>> Removing all containers ..."
 docker container prune -f
 
-echo ">>> Creating Portainler volume ..."
-docker volume create portainer_data
+echo ">>> Creating Portainer volume ..."
+docker volume create $CONTAINER_DATA
 
-echo ">>> Starting Portainer container..."
-docker run --restart always -d \
-	-p 80:9000 \
+echo ">>> Starting Portainer Host ..."
+docker run --name $CONTAINER_NAME --restart always -d \
+	-p 9000:9000 \
 	-v /var/run/docker.sock:/var/run/docker.sock \
-	-v portainer_data:/data \
+	-v $CONTAINER_DATA:/data \
 	portainer/portainer-ce
