@@ -4,7 +4,7 @@
 # How to apply this script ...
 # ----------------------------------------
 #
-# 	wget -O - "https://raw.githubusercontent.com/TheSaints-de/proxmox/main/scripts/docker-$OS_ID.sh" | $(echo $SHELL)
+# 	wget -O - "https://raw.githubusercontent.com/TheSaints-de/proxmox/main/scripts/docker-alpine.sh" | $(echo $SHELL)
 #
 # ========================================
 
