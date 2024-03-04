@@ -13,9 +13,6 @@ OS_ID=$($(awk -F= '/^ID=/{print $2}' /etc/os-release))
 # Install Docker
 wget -qO - "https://raw.githubusercontent.com/TheSaints-de/proxmox/main/scripts/docker-$OS_ID.sh" | $(echo $SHELL)
 
-# Kill running containers
-docker kill $(docker ps -q)
-
 # Delete all containers (incl. anonymous volumes)
 docker rm -vf $(docker ps -q)
 
