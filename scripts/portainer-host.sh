@@ -19,7 +19,10 @@ docker rm -f $(docker ps -q)
 echo ">>> Removing all containers ..."
 docker container prune -f
 
-echo ">>> Installing Portainer ..."
+echo ">>> Creating Portainler volume ..."
+docker volume create portainer_data
+
+echo ">>> Starting Portainer container..."
 docker run \
 	--restart always \
 	--detach \
