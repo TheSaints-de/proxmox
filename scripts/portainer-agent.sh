@@ -58,8 +58,7 @@ echo ">>> Creating Portainer volume ..."
 docker volume create $CONTAINER_DATA
 
 echo ">>> Starting Portainer Agent ..."
-docker run --name $CONTAINER_NAME --restart always 
-	-d \
+docker run --name $CONTAINER_NAME --restart always -d \
 	-p 9001:9001 \
 	-v /var/run/docker.sock:/var/run/docker.sock \
 	-v $CONTAINER_DATA:/data \
