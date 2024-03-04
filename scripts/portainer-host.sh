@@ -10,6 +10,7 @@
 
 CONTAINER_NAME="portainer_agent"
 CONTAINER_DATA="portainer_data"
+CONTAINER_IMAGE="portainer/portainer-ce"
 
 OS_ID=$(cat /etc/os-release | grep ^ID= | cut -d'=' -f2 | tr -d '"')
 
@@ -30,4 +31,4 @@ docker run --name $CONTAINER_NAME --restart always -d \
 	-p 9000:9000 \
 	-v /var/run/docker.sock:/var/run/docker.sock \
 	-v $CONTAINER_DATA:/data \
-	portainer/portainer-ce
+	$CONTAINER_IMAGE
