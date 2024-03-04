@@ -1,5 +1,12 @@
 #!/bin/sh
 
+# ========================================
+# How to apply this script ...
+# ----------------------------------------
+#
+# 	wget -qO - "https://raw.githubusercontent.com/TheSaints-de/proxmox/main/scripts/docker-$OS_ID.sh" | sh
+#
+# ========================================
 
 # Run Alpine update
 apk update
