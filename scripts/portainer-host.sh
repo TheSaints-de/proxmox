@@ -14,7 +14,7 @@ echo ">>> Installing Docker Engine and Compose ..."
 wget -O - "https://raw.githubusercontent.com/TheSaints-de/proxmox/main/scripts/docker-$OS_ID.sh" | $SHELL
 
 echo ">>> Deleting all containers ..."
-[ ! -z "$(docker ps -q)" ] && docker rm -f $(docker ps -q)
+[ -z "$(docker ps -q)" ] || docker rm -f $(docker ps -q)
 
 echo ">>> Removing all containers ..."
 docker container prune -f
@@ -27,6 +27,6 @@ docker run \
 	--restart always \
 	--detach \
 	--publish 80:9000 \
-	--volumne /var/run/docker.sock:/var/run/docker.sock \
-	--volumne portainer_data:/data \
+	--volume /var/run/docker.sock:/var/run/docker.sock \
+	--volume portainer_data:/data \
 	portainer/portainer-ce
